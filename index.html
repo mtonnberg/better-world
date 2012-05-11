@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd"
+    >
+<html lang="en">
+<head>
+    <title>better world</title>
+    <script src="jquery.js"></script>
+    <script src="socket.io.js"></script>
+</head>
+<body>
+    <div id="fps"></div>
+    <canvas id='c'></canvas>
+    <script>
+    
+    var fps = 0, now, lastUpdate = (new Date)*1 - 1;
+
+// The higher this value, the less the FPS will be affected by quick changes
+// Setting this to 1 will show you the FPS of the last sampled frame only
+var fpsFilter = 50;
+lastUpdate = 0;
+
+var fpsOut = document.getElementById('fps');
+setInterval(function(){
+  fpsOut.innerHTML = fps.toFixed(1) + "fps";
+}, 1000);
+    </script>
+    <script src="general/settings.js"></script>
+    
+    <script src="client/client.js"></script>
+    <script src="client/models/globals.js"></script>
+    <script src="client/controllers/initer.js"></script>
+    <script src="client/controllers/updater.js"></script>
+    <script src="client/controllers/eventHandler.js"></script>
+    <script src="client/controllers/serverCommunicator.js"></script>
+    
+    <script src="game.js"></script>
+</body>
+</html>
