@@ -23,9 +23,11 @@ var server = {
         });
     },
     "start": function(){
-        var webServer = require('express').createServer();
-        var io = require('socket.io').listen(webServer, { log: false });
-        webServer.listen(8888);
+		var express = require('express');
+        var app = express();
+		var server = require('http').createServer(app)
+        var io = require('socket.io').listen(server, { log: false });
+        app.listen(8888);
         
         this.bindSocketEvents(io);
         this.logicHandler.init();
